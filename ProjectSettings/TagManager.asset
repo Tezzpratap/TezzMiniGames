@@ -9,6 +9,9 @@ TagManager:
   - Ground
   - Spikes
   - FlappyPoints
+  - Laser
+  - Wall
+  - EnemyLaser
   layers:
   - Default
   - TransparentFX

@@ -15,4 +15,13 @@ public class Laser : MonoBehaviour
     {
         transform.Translate(Vector3.up * laserSpeed * Time.deltaTime);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyLaser"))
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+    }
 }

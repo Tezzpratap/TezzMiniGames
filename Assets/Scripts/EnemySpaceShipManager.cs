@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemySpaceShipManager : MonoBehaviour
 {
     [SerializeField] float speed = 1.0f;
+    [SerializeField] GameManager_SpaceInvaders GameManager_SpaceInvaders;
 
     Vector3 direction = Vector3.right;
     float counter = 1f;
@@ -16,8 +17,11 @@ public class EnemySpaceShipManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager_SpaceInvaders.isPlayerAlive)
+        {
+            transform.position += direction * speed * Time.deltaTime;
+        }
         counter += Time.deltaTime;
-        transform.position += direction * speed * Time.deltaTime;
     }
 
     public void ChangeDirecion()

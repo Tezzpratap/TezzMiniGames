@@ -11,11 +11,12 @@ public class SpaceShipController : MonoBehaviour
     const float MAX_Y = 4f;
 
     [SerializeField] GameObject Laser;
+    GameManager_SpaceInvaders gameManager_SpaceInvaders;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        gameManager_SpaceInvaders = FindFirstObjectByType<GameManager_SpaceInvaders>();
     }
 
     // Update is called once per frame
@@ -37,5 +38,15 @@ public class SpaceShipController : MonoBehaviour
             counter = 0f;
         }
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyLaser"))
+        {
+            gameManager_SpaceInvaders.PlayerDied();
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
     }
 }

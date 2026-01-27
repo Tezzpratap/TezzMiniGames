@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemie 2_0
       objectReference: {fileID: 0}
+    - target: {fileID: 6491078916952215202, guid: 692237c92639dbe4eaa69490c551f97b, type: 3}
+      propertyPath: points
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 6702889909124149442, guid: 692237c92639dbe4eaa69490c551f97b, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 0.93333334

@@ -5,6 +5,7 @@ public class EnemySpaceShip : MonoBehaviour
     [SerializeField] EnemySpaceShipManager enemySpaceShipManager;
     [SerializeField] GameManager_SpaceInvaders SpaceInvaders_gameManager;
     [SerializeField] GameObject LaserPrefab;
+    [SerializeField] int points = 100;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,7 +23,10 @@ public class EnemySpaceShip : MonoBehaviour
     {
         if (Random.value < (1f / transform.parent.childCount))
         {
-            Instantiate(LaserPrefab, transform.position, Quaternion.identity);
+            if (SpaceInvaders_gameManager.isPlayerAlive)
+            {
+                Instantiate(LaserPrefab, transform.position, Quaternion.identity);
+            }
         }
     }
 
@@ -30,6 +34,7 @@ public class EnemySpaceShip : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Laser"))
         {
+            SpaceInvaders_gameManager.AddScore(points);
             if (transform.parent.childCount <= 1)
             {
                 SpaceInvaders_gameManager.GameWin();

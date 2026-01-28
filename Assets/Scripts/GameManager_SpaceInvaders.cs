@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager_SpaceInvaders : MonoBehaviour
 {
@@ -9,8 +10,11 @@ public class GameManager_SpaceInvaders : MonoBehaviour
     [SerializeField] int playerSpawnDelay;
     [SerializeField] TextMeshProUGUI score;
     [SerializeField] TextMeshProUGUI lives;
+    [SerializeField] GameObject WinPanel;
+	[SerializeField] GameObject LoosePanel;
+	[SerializeField] GameObject PausePanel;
 
-    public bool isPlayerAlive = true;
+	public bool isPlayerAlive = true;
 
     int playerScore = 0;
 
@@ -61,5 +65,9 @@ public class GameManager_SpaceInvaders : MonoBehaviour
     public void GameWin()
     {
         Debug.Log("Won");
+    }
+
+    public void ReloadGame(){
+        SceneManager.LoadScene("Space Invaders");
     }
 }

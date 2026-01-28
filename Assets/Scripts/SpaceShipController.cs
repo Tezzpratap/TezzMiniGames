@@ -22,8 +22,8 @@ public class SpaceShipController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float directionH = Input.GetAxis("Horizontal");
-        float directionV = Input.GetAxis("Vertical");
+        float directionH = Input.GetAxisRaw("Horizontal");
+        float directionV = Input.GetAxisRaw("Vertical");
         transform.position += Vector3.right * directionH * spaceShipSpeed * Time.deltaTime;
         transform.position += Vector3.up * directionV * spaceShipSpeed * Time.deltaTime;
 
